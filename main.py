@@ -20,9 +20,11 @@ movementSpeed = 5
 speedIncrement = 2
 
 game_is_on = True
+alive = True
 while game_is_on:
     time.sleep(0.1)
-    screen.update()
+    if alive:
+        screen.update()
 
     # Spawn car and move
     createCar = random.choice([True, False, False, False])      # Random spawnrate for cars - more false means lesser cars spawned
@@ -32,7 +34,9 @@ while game_is_on:
     for car in cars:
         car.moveCarToLeft(movementSpeed)
         if car.distance(carl) < 20:     # Detect car collision
-            print("Game ends here")
+            alive = False
+            time.sleep(3)
+            game_is_on = False
         
     # Check if car reached finishline
     if carl.ycor() > carl.FINISH_LINE_Y:
