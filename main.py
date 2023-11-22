@@ -31,12 +31,15 @@ while game_is_on:
         cars.append(car)
     for car in cars:
         car.moveCarToLeft(movementSpeed)
+        if car.distance(carl) < 20:     # Detect car collision
+            print("Game ends here")
         
     # Check if car reached finishline
     if carl.ycor() > carl.FINISH_LINE_Y:
         carl.winRound()
         movementSpeed += speedIncrement
         
+    
         
     
         
