@@ -21,11 +21,8 @@ movementSpeed = 5
 speedIncrement = 2
 
 game_is_on = True
-alive = True
 while game_is_on:
     time.sleep(0.1)
-    if alive:
-        screen.update()
 
     score.displayScore()
     
@@ -37,8 +34,6 @@ while game_is_on:
     for car in cars:
         car.moveCarToLeft(movementSpeed)
         if car.distance(carl) < 20:     # Detect car collision
-            alive = False
-            time.sleep(3)
             game_is_on = False
         
     # Check if car reached finishline
@@ -47,6 +42,14 @@ while game_is_on:
         score.winRound()
         movementSpeed += speedIncrement
         
+    screen.update()
+    
+# Game ends here, loop is exited. 
+
+screen.clearscreen()    # Screen gets cleared
+score.finishGame()    # Update the final score
+screen.update()     # Display the final score
+time.sleep(3)
     
         
     

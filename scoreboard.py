@@ -17,4 +17,8 @@ class Scoreboard(Turtle):
     def winRound(self):
         self.level += 1 
         
+    def finishGame(self):
+        self.goto(-250,0)
+        self.write(f"Game over, your score is: {self.level}", font= FONT)
+        
     
