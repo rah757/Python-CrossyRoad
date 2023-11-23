@@ -5,10 +5,17 @@ class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
         self.level = 1
+        self.hideturtle()
+        self.displayScore()
+        
+    def displayScore(self):
+        self.clear()
         self.penup()
         self.color('black')
-        self.hideturtle()
         self.goto((-275,250))
         self.write(f"Level: {self.level}", font= FONT)
+        
+    def winRound(self):
+        self.level += 1 
         
     

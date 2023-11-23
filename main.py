@@ -27,6 +27,8 @@ while game_is_on:
     if alive:
         screen.update()
 
+    score.displayScore()
+    
     # Spawn car and move
     createCar = random.choice([True, False, False, False])      # Random spawnrate for cars - more false means lesser cars spawned
     if createCar:
@@ -42,6 +44,7 @@ while game_is_on:
     # Check if car reached finishline
     if carl.ycor() > carl.FINISH_LINE_Y:
         carl.winRound()
+        score.winRound()
         movementSpeed += speedIncrement
         
     
