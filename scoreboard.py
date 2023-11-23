@@ -6,7 +6,6 @@ class Scoreboard(Turtle):
         super().__init__()
         self.level = 1
         self.hideturtle()
-        self.displayScore()
         
     def displayScore(self):
         self.clear()
