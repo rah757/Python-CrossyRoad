@@ -10,6 +10,7 @@ screen.setup(width=600, height=600)
 screen.tracer(0)
 
 carl = Player()
+score = Scoreboard()
 
 screen.listen()
 screen.onkeypress(carl.move, "Up")
